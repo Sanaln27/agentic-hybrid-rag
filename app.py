@@ -6,6 +6,7 @@ from langchain.agents import create_agent
 from langchain.messages import HumanMessage,AIMessage
 from tools.tools import mysql_tool,rag_tool
 from model.config import llm
+from memory.conversation import histroy,add_msg
 
 load_dotenv()
 
@@ -32,16 +33,21 @@ while True:
     if question.lower()=="exit":
         print("boyee boyeee")
         break 
-
-    response = agent.invoke(
-        {
-            "messages": [
-                {
-                    "role": "user",
-                    "content": question
-                }
-            ]
-        }
+    add_msg(
+        role="user",
+        content=question
     )
 
-    print(response["messages"][-1].content)
+
+    response = agent.invoke({
+        "messages":histroy()
+    })
+
+    answer=response["messages"][-1].content
+
+    add_msg(
+        role="assistant",
+        content=answer
+    )
+
+    print(answer)
