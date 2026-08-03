@@ -1,31 +1,40 @@
 import json
 from pathlib import Path
 
-histroy=Path("memory/conversation.json")
-
+history = Path("memory/conversation.json")
+#load to llm
 def load_history():
-    if not histroy.exists():
-         histroy.parent.mkdir(parents=True, exist_ok=True)
-         histroy.write_text([],encoding="utf-8")
-         with open (histroy,"r",encoding="utf-8") as file:
-         return json.load(file)
+    print("File exists:", history.exists())
+    print("File size:", history.stat().st_size if history.exists() else "No file")
 
-def save_history(history):
-    with open(histroy,"w",encoding="utf-8") as file:
-    return json.dump(histroy,file,indent=4)
+    if not history.exists():
+        history.parent.mkdir(parents=True, exist_ok=True)
+        history.write_text("[]", encoding="utf-8")
 
+    with open(history, "r", encoding="utf-8") as file:
+        return json.load(file)
 
-def add_msg(role,content):
-    history=load_history()
-    history.append({
-        "role":role,
-        "content":content
+#save in the sense erase
+
+def save_history(history_data):
+    with open(history, "w", encoding="utf-8") as file:
+        json.dump(history_data, file, indent=4)
+
+#add new msg to the conversatn
+def add_msg(role, content):
+    history_data = load_history()
+
+    history_data.append({
+        "role": role,
+        "content": content
     })
 
-    save_history(histroy)
+    save_history(history_data)
 
+#return alll msg
 def get_hstry():
     return load_history()
 
+#clears history
 def clear_hstry():
-    return histroy.clear()
+    save_history([])
