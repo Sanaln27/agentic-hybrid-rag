@@ -38,3 +38,7 @@ def get_hstry():
 #clears history
 def clear_hstry():
     save_history([])
+
+
+
+

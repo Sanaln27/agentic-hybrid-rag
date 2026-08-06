@@ -1,5 +1,10 @@
-from memory.conversation import load_history,get_hstry,add_msg,clear_hstry
-add_msg("user","goodmorning")
-add_msg("assistant","getlost")
+from memory.memory_agent import memory_agent
+from model.config import llm
 
-get_hstry()
+memory_agent(
+    llm=llm,
+    user_imput="My name is Sana",
+    assistant_response="Nice to meet you."
+)
+
+print("Memory Agent Executed Successfully!")
