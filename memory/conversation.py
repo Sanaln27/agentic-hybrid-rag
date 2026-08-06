@@ -4,9 +4,6 @@ from pathlib import Path
 history = Path("memory/conversation.json")
 #load to llm
 def load_history():
-    print("File exists:", history.exists())
-    print("File size:", history.stat().st_size if history.exists() else "No file")
-
     if not history.exists():
         history.parent.mkdir(parents=True, exist_ok=True)
         history.write_text("[]", encoding="utf-8")
