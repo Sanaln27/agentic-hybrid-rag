@@ -17,6 +17,7 @@ def build_vector_database():
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=100,
         chunk_overlap=50,
+        separators=["\n\n","\n"," "],
     )
 
     chunks = splitter.split_documents(documents)

@@ -78,5 +78,29 @@
     {
         "role": "assistant",
         "content": "You're right\u2014my earlier lines assumed a librarian. Here are ultra-short lines tailored for Vinayak, a 4th-year CS Engineering student.\n\nIn-person opener:\n- \"Hi Vinayak, I\u2019m Sana. You\u2019re in 4th-year CS engineering, right? Quick question\u2014any internship tips?\"\n\nIf he\u2019s receptive (follow-up):\n- \"Nice chat, Vinayak. Want to grab coffee after class this week?\"\n\nText/DM option:\n- \"Hi Vinayak, it\u2019s Sana from [course/CS club]. I enjoyed our chat\u2014want to grab coffee this weekend?\"\n\nBackup (if no or he\u2019s not interested):\n- \"No worries\u2014thanks for the chat today.\"\n\nWant more variations or tweaks? Tell me any specific details (course name, club, location) and I\u2019ll tailor further."
+    },
+    {
+        "role": "user",
+        "content": "what is leave policy"
+    },
+    {
+        "role": "assistant",
+        "content": "Could you clarify which leave policy you mean? Here are the common options:\n\n- University/classroom leave policy: Absences for illness, emergencies, religious observances, etc. Usually you need to provide documentation to your professor or registrar. Attendance requirements vary by course.\n\n- Internship/job leave policy (workplace): Paid time off (PTO) or sick leave if you\u2019re treated as an employee; unpaid leave or personal leave if PTO isn\u2019t provided; some places follow FMLA rules (eligible employees in the U.S. after 12 months/1,250 hours) for family/medical reasons. Always check the offer letter, employee handbook, or HR portal. For internships, many programs don\u2019t include PTO and you\u2019ll coordinate with your supervisor if you need time off.\n\n- Other: Medical leave, jury duty, military leave, etc., each with its own rules.\n\nIf you tell me which setting (university, internship, or full-time job) and your location, I can give you exact steps and a ready-to-send request. If you want, I can also draft a short leave request template."
+    },
+    {
+        "role": "user",
+        "content": "use rag tool"
+    },
+    {
+        "role": "assistant",
+        "content": "Here\u2019s a concise takeaway based on the rag tool output:\n\n- PTO (paid time off): Often around 20 paid leave days per year for employees, but internships vary widely. Check the internship offer letter or HR policy for the exact amount.\n- Sick leave: Not consistently specified in internship docs. May be covered by PTO if available, or by state/company policies.\n- FMLA applicability: Not specified in the tool\u2019s output. FMLA generally applies to eligible employees after certain tenure/hours, but many internships don\u2019t automatically qualify. Eligibility varies by employer and location.\n\nImportant: Internship policies vary a lot. Always check the offer letter, HR portal, or with the supervisor for the exact policy.\n\nIf you want, I can draft a short leave-request template tailored to your internship (location, duration, and reason). Tell me:\n- Your location/state\n- Company/organization name (or keep it generic)\n- Leave duration and dates\n- Reason for leave (brief)"
+    },
+    {
+        "role": "user",
+        "content": "use rag tool"
+    },
+    {
+        "role": "assistant",
+        "content": "Here\u2019s what the rag tool output said:\n\n- Typical leave policy for internships in the US isn\u2019t standardized.\n- For employees, PTO is often around 20 paid leave days per year, but internship-specific policies aren\u2019t specified in the source.\n- The exact process to request leave isn\u2019t specified and usually depends on the offer letter, HR portal, or supervisor.\n\nIf you want, I can tailor a leave-request template to your situation. Here are a few ultra-short options you can use now:\n\n1) Email template\nSubject: Leave request \u2013 Sana [Last Name], [Internship Title]\nHi [ Supervisor Name ],\nI\u2019m Sana [Last Name], intern in [Team/Dept]. I\u2019d like to request leave on [date(s)]. I\u2019ll ensure any urgent tasks are covered and will be back on [date]. Please let me know if this works.\nThanks,\nSana\n\n2) Quick Slack/Teams message\nHi [Name], it\u2019s Sana from [Team]. I\u2019d like to request leave on [date(s)]. Is that okay?\n\n3) In-person script\nHi [Name], quick note\u2014can I take leave on [date(s)]? I\u2019ll make sure everything is covered before I go.\n\nTell me:\n- Location and company/organization (or keep it generic)\n- Leave dates\n- Brief reason (optional)\n- Any constraints (remote work, partial hours, etc.)\n\nI\u2019ll tailor a version precisely for you."
     }
 ]

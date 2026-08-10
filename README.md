@@ -4,7 +4,6 @@
 
 This project is an **Agentic Retrieval-Augmented Generation (RAG) System** built using **LangChain**. The main purpose of this project is to perform **semantic search** over documents and generate accurate answers based on the retrieved information. Along with document retrieval, the system can also query a MySQL database using tool calling.
 
----
 
 # How the System Works
 
@@ -18,8 +17,6 @@ Instead of creating a separate loader for every file type, the project follows a
 - **get_loader()** – Selects the appropriate LangChain document loader depending on the file type.
 - **load_documents()** – Reads the contents of all supported files and converts them into LangChain **Document** objects. These document objects temporarily store the extracted text, making it easier for further AI processing.
 
----
-
 # Chunking and Embedding
 
 Once all the text has been extracted from the documents, the next step is **chunking**.
@@ -29,11 +26,6 @@ Large documents cannot be processed efficiently in one go, so they are divided i
 Each chunk is then converted into an **embedding** using OpenAI Embeddings. These embeddings capture the semantic meaning of the text rather than just the keywords.
 
 Finally, all the generated embeddings are stored inside **ChromaDB**, which acts as the vector database for this project.
-
----
-
-
----
 
 # Complete RAG Pipeline
 
@@ -115,7 +107,6 @@ This tool executes SQL queries on the connected MySQL database and retrieves str
 
 The LangChain Agent automatically decides which tool should be used depending on the user's query.
 
----
 
 # Prompt Engineering
 
@@ -123,7 +114,6 @@ The system prompt is stored separately inside the **prompts** folder.
 
 Keeping prompts in a separate file makes the project easier to maintain because prompts usually require frequent modifications during development. Instead of changing the main application code, only the prompt file needs to be updated.
 
----
 
 # Main Application
 
@@ -144,8 +134,6 @@ Whenever the user asks a question, the agent decides whether the query should be
 If the required information is found in the documents, the RAG Tool performs semantic retrieval and generates an answer using the retrieved context.
 
 If the question is unrelated to the indexed documents or database, the language model answers using its own general knowledge.
-
----
 
 ```
 User Question
