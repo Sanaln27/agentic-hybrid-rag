@@ -1,14 +1,13 @@
 # Agentic RAG System using LangChain
 
-## Overview
-
 This project is an **Agentic Retrieval-Augmented Generation (RAG) System** built using **LangChain**. The main purpose of this project is to perform **semantic search** over documents and generate accurate answers based on the retrieved information. Along with document retrieval, the system can also query a MySQL database using tool calling.
 
 
 # How the System Works
 
 The first step of the project is document ingestion. The user places all the required documents inside the **data** folder. The system supports multiple file formats such as:
-PDF,TXT,CSV,DOCX, Markdown (.md)
+
+.pdf,.txt,.csv,.dox, Markdown (.md).
 
 Instead of creating a separate loader for every file type, the project follows a modular approach using different helper functions.
 
