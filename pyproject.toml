@@ -1,0 +1,12 @@
+[project]
+name = "agentic-hybrid-rag"
+version = "0.1.0"
+description = "Agentic hybrid RAG project"
+requires-python = ">=3.11"
+dependencies = [
+    "langchain",
+    "langchain-community",
+    "langchain-text-splitters",
+    "rank-bm25",
+]
+
