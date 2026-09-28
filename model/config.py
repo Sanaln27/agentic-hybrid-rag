@@ -7,7 +7,7 @@ load_dotenv()
 
 
 llm=ChatOpenAI(
-    model="openai/gpt-5-nano",
+    model="openai/gpt-6-luna",
     base_url="https://api.aicredits.in/v1",
     api_key=os.getenv("OPENAI_API_KEY"),
     timeout=60
