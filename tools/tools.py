@@ -1,5 +1,5 @@
 from langchain.tools import tool
-from RAG.generator import generate_answer
+from agentic_hybrid_RAG.retriver.Dense.generator import generate_answer
 from pathlib import Path
 import mysql.connector
 
