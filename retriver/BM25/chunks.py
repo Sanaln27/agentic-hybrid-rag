@@ -6,8 +6,8 @@ def data_base():
 
 #do chunking
     splitter=RecursiveCharacterTextSplitter(
-        chunk_size=5000,
-        chunk_overlap=1000
+        chunk_size=50,
+        chunk_overlap=10
     )
 
     chunk=splitter.split_documents(documents)
@@ -17,4 +17,3 @@ def data_base():
 chunk=data_base()
 
 print(len(chunk))
-print(chunk[0])
