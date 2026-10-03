@@ -518,5 +518,117 @@
     {
         "role": "assistant",
         "content": "The RAG result suggested a mystery game, but you said that genre\u2019s already been done. A stronger, more distinct idea:\n\n## **Pager Panic: AI On-Call Simulator**\nPlay as an engineer responding to a production outage. The game gives you an incident\u2014say, a service is down\u2014and you investigate using **runbooks, architecture docs, and past incident reports**.\n\n- Ask questions and retrieve relevant passages with your **BM25 + semantic search**.\n- Choose troubleshooting actions; the simulator changes the incident based on your choices.\n- Get scored on recovery time, safe actions, and whether your decisions were supported by the documents.\n- Show citations for the retrieved evidence, so the AI\u2019s guidance is verifiable.\n\nIt\u2019s fun as a timed challenge and resume-worthy because it demonstrates **RAG, hybrid retrieval, grounded answers, document ingestion, and an interactive UI**\u2014without being another clue-solving game."
+    },
+    {
+        "role": "user",
+        "content": "hoe many days I can take holiday"
+    },
+    {
+        "role": "assistant",
+        "content": "Employees are entitled to **20 paid leave days per year**."
+    },
+    {
+        "role": "user",
+        "content": "why my bmre retriver isnt working properly and giving irrelent chunks "
+    },
+    {
+        "role": "assistant",
+        "content": "BM25 may return irrelevant chunks because it matches **word overlap**, not meaning. Common causes:\n\n- **Poor chunking:** relevant context is split across chunks, or chunks are too long/noisy. Try smaller coherent chunks with modest overlap.\n- **Tokenization mismatch:** query and documents handle punctuation, casing, hyphens, or stemming differently.\n- **Noisy corpus:** duplicated text, bad PDF extraction, boilerplate, or missing metadata can distort rankings.\n- **Query preprocessing:** stop-word removal or normalization may remove important terms.\n- **Unhelpful ranking settings:** test different BM25 `k1` and `b` values, but fix data and tokenization issues first.\n- **Missing filters:** use metadata filters when the query implies a document type, date, or topic.\n\nDebug a bad result by logging the **processed query, top chunks, BM25 scores, and applied filters**. Then inspect whether the relevant text exists in the indexed corpus and how it was chunked. If matching concepts with different wording is the problem, combine BM25 with semantic retrieval and rerank the candidates.\n\nShare one query and its top few retrieved chunks, and I can help diagnose the specific issue."
+    },
+    {
+        "role": "user",
+        "content": "I am using the buildin bm25retriver in langchain"
+    },
+    {
+        "role": "assistant",
+        "content": "LangChain\u2019s built-in `BM25Retriever` is lexical, and its default preprocessing is simple whitespace splitting. So punctuation, hyphens, and wording differences can hurt matching.\n\nTry custom tokenization and tune `k`:\n\n```python\nimport re\nfrom langchain_community.retrievers import BM25Retriever\n\ndef tokenize(text):\n    return re.findall(r\"\\b[\\w-]+\\b\", text.lower())\n\nretriever = BM25Retriever.from_documents(\n    chunks,\n    preprocess_func=tokenize,\n    k=5,\n)\n\nresults = retriever.invoke(\"your search query\")\n```\n\nAlso check that your chunks are coherent\u2014not too broad or too tiny\u2014and that the retriever was built from the intended, clean documents. Inspect the top results and scores **before** passing them to your LLM. If relevant chunks use different terms from the query, combine BM25 with semantic retrieval."
+    },
+    {
+        "role": "user",
+        "content": "what is the update in cricket ,only INDIA"
+    },
+    {
+        "role": "assistant",
+        "content": "I can't help with that one \u2014 I don't have live web access. My rag tool only covers internal company documents (leave policy, WFH, employee profiles), and the database tool holds company records, so neither can pull current cricket news.\n\nFor India-only updates, quick options:\n- ESPNcricinfo or Cricbuzz \u2014 live scores, fixtures, injury news\n- BCCI official site or the Indian Cricket Team's Instagram/X \u2014 selection and squad announcements\n- The Hindu / Indian Express cricket section for written reports\n\nIf you tell me what you need \u2014 a specific series, match result, or squad news \u2014 I can tell you what I know from memory, though verify it since my training data has a cutoff."
+    },
+    {
+        "role": "user",
+        "content": "what is the leave policy"
+    },
+    {
+        "role": "assistant",
+        "content": "Employees are entitled to **20 paid leave days per year**."
+    },
+    {
+        "role": "user",
+        "content": "what is the leave policy"
+    },
+    {
+        "role": "assistant",
+        "content": "**20 paid leave days per year.**"
+    },
+    {
+        "role": "user",
+        "content": "who is nabneet tell me about his skills"
+    },
+    {
+        "role": "assistant",
+        "content": "Nabneet Panda is a BE student in Computer Science & Engineering (AIML) with **3 months of experience as a Software Development Intern** on an AI-powered exam evaluation project.\n\n**Skills**\n- Languages: Python, Dart, Java (basics), C, SQL\n- Frameworks & tools: Flutter, Next.js, Tailwind CSS, Firebase, Supabase, SQLAlchemy, AI tools, Git"
+    },
+    {
+        "role": "user",
+        "content": "who is nabneet"
+    },
+    {
+        "role": "assistant",
+        "content": "Nabneet Panda is a BE student in Computer Science & Engineering (AIML) with **3 months of experience as a Software Development Intern** on an AI-powered exam evaluation project."
+    },
+    {
+        "role": "user",
+        "content": "who is nabneet and what are his skills"
+    },
+    {
+        "role": "assistant",
+        "content": "Nabneet Panda is pursuing a **Bachelor of Engineering in Computer Science & Engineering (AI/ML)**. The profile retrieved now doesn\u2019t list his skills, so I can\u2019t verify them from that source. Earlier I gave a skills list, but I can\u2019t confirm it against the profile currently available."
+    },
+    {
+        "role": "user",
+        "content": "then what is the leave policy"
+    },
+    {
+        "role": "assistant",
+        "content": "Employees are entitled to **20 paid leave days per year**."
+    },
+    {
+        "role": "user",
+        "content": "who is nabnettt"
+    },
+    {
+        "role": "assistant",
+        "content": "Nabneet Panda is a **BE student in Computer Science & Engineering (AI/ML)**. Some retrieved results also mention **3 months of experience as a Software Development Intern** on an AI-powered exam evaluation project, though that detail didn\u2019t come through in every lookup."
+    },
+    {
+        "role": "user",
+        "content": "who is nabnettt"
+    },
+    {
+        "role": "assistant",
+        "content": "Nabneet Panda is a BE student in **Computer Science & Engineering (AI/ML)**."
+    },
+    {
+        "role": "user",
+        "content": "who is nabneeettth"
+    },
+    {
+        "role": "assistant",
+        "content": "Nabneet Panda is pursuing a **BE in Computer Science & Engineering (AIML)**. The profile I just checked doesn\u2019t list his skills."
+    },
+    {
+        "role": "user",
+        "content": "hoe many days I can go for wedding "
+    },
+    {
+        "role": "assistant",
+        "content": "The policy allows **20 paid leave days per year** and doesn\u2019t specify separate wedding leave. You\u2019d use your available paid leave and confirm the dates with your manager."
     }
 ]
